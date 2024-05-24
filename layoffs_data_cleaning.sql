@@ -1,4 +1,6 @@
--- Data Cleaning
+-- this script was written and run in MySQL using the data contained in 'layoffs.csv' (available in the repository)
+
+-- Data Cleaning of layoffs.csv for Exploratory Data Analysis
 
 -- 1. Copy data to work off of
 -- 2. Remove Duplicates (if any)
