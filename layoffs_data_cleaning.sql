@@ -31,7 +31,8 @@ FROM layoffs_staging;
 
 -- 2. Removing duplicates
 
--- Since there are no columns containing a unique id value, row_number is used and by partitioning by all of the columns in the sheet we can get a row_number count that will show if any of the rows are duplicate values
+-- Since there are no columns containing a unique id value, row_number is used and by partitioning by all of the columns 
+-- in the sheet we can get a row_number count that will show if any of the rows are duplicate values
 SELECT *,
 ROW_NUMBER() OVER(
 PARTITION BY company, industry, total_laid_off, percentage_laid_off, `date`) AS row_num
@@ -193,7 +194,8 @@ UPDATE layoffs_staging2
 SET industry = NULL
 WHERE industry = '';
 
--- by joining the table on itself and filtering one for nulls + blanks and the other full non-nulls we are able to see which companies have multiple entries and can be used to fill in the missing industry data
+-- by joining the table on itself and filtering one for nulls + blanks and the other full non-nulls we are able 
+-- to see which companies have multiple entries and can be used to fill in the missing industry data
 SELECT *
 FROM layoffs_staging2 t1
 JOIN layoffs_staging2 t2
